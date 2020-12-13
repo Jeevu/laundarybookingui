@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:laundarybookingui/cardwidget.dart';
+import 'package:laundarybookingui/mycartpage.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -8,8 +9,29 @@ class HomePage extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     print(size);
     return Scaffold(
-     
       backgroundColor: Colors.grey[200],
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              padding: EdgeInsets.fromLTRB(5, 20, 5, 10),
+              child:Container(
+                color: Colors.yellowAccent,
+                child: Text('Menu',style: TextStyle(color: Colors.blue),),)
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyCartHome()),
+                );
+              },
+              child: Text('My Cart'),
+            )
+          ],
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -30,16 +52,21 @@ class HomePage extends StatelessWidget {
                           constraints.maxHeight * 0.8,
                         );
                         return Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Icon(
-                             Icons.menu, size: 30,
-                             // size: 30,
+                            IconButton(
+                              icon: Icon(
+                                Icons.menu,
+                                size: 30,
+                              ),
+                              // size: 30,
                               color: Color.fromRGBO(44, 44, 44, 1),
-                             
+                              onPressed: () {
+                                Scaffold.of(context).openDrawer();
+                              },
                             ),
                             SizedBox(
-                              width: constraints.maxWidth * 0.68,
+                              width: constraints.maxWidth * 0.65,
                             ),
                             Container(
                               height: 52.416,

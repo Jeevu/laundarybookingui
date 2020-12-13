@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laundarybookingui/HomePage.dart';
+import 'package:laundarybookingui/mycartpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
      
 
-      home:HomePage(),);
+      home: 
+      HomePage());
   }
 } 
     
