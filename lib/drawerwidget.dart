@@ -58,58 +58,58 @@ class _DrawerClassState extends State<DrawerClass> {
               alignment: Alignment.center,
               child: Column(children: [
                 ListTile(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
-                  leading:IconButton(icon: Icon(Icons.home,color: Colors.blue,),onPressed: null,),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 40),
+                  leading: Icon(Icons.home,color: Colors.blue,),
                   trailing: Text('Home',style: TextStyle(fontWeight: FontWeight.bold),),
                   selectedTileColor: Colors.blue[100],
                   onTap: null,
                 ),
                 ListTile(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
-                  leading: IconButton(icon:Icon(Icons.shopping_cart_sharp,color: Colors.black,),
-                  onPressed:  (){
+                  contentPadding: EdgeInsets.symmetric(horizontal: 40),
+                  leading: Icon(Icons.shopping_cart_sharp,color: Colors.black,),
+                
+                  
+                  trailing: Text('My Cart',style: TextStyle(fontWeight: FontWeight.bold),),
+                  selectedTileColor: Colors.blue[100],
+                  onTap: (){
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => MyCartHome()));
             },
-                  ),
-                  trailing: Text('My Cart',style: TextStyle(fontWeight: FontWeight.bold),),
-                  selectedTileColor: Colors.blue[100],
-                  onTap: null,
                 ),
                 ListTile(
-                    contentPadding: EdgeInsets.symmetric(horizontal: 30),
-                    leading:IconButton( onPressed: null,icon: Icon(Icons.payment,color: Colors.orange,),),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 40),
+                    leading: Icon(Icons.payment,color: Colors.orange,),
                     trailing: Text('My Payment',style: TextStyle(fontWeight: FontWeight.bold),),
                     selectedTileColor: Colors.blue[100],
                     onTap: null),
                     Divider(thickness:1,indent: 2,),
                     SizedBox(height: 30,),
                 ListTile(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
-                  leading:IconButton(icon: Icon(Icons.settings,
+                  contentPadding: EdgeInsets.symmetric(horizontal: 40),
+                  leading:Icon(Icons.settings,
                        color: Colors.redAccent,
                       ),
-                      onPressed: null),
+                     
                   trailing: Text('Setting',),
                   selectedTileColor: Colors.blue[100],
                   onTap: null,
                 ),
                 ListTile(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
-                  leading: IconButton(onPressed: null,icon:Icon(Icons.logout,
+                  contentPadding: EdgeInsets.symmetric(horizontal: 40),
+                  leading:Icon(Icons.logout,
                        color: Colors.redAccent,
-                      ),),
+                      ),
                   trailing: Text('Logout',),
                   selectedTileColor: Colors.blue[100],
                   onTap: null,
                 ),
                 ListTile(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
-                  leading: IconButton(icon:Icon(Icons.report_problem_outlined,
+                  contentPadding: EdgeInsets.symmetric(horizontal: 40),
+                  leading:Icon(Icons.report_problem_outlined,
                        color: Colors.redAccent,
                       ),
-                      onPressed: null),
+                      
                   trailing: Text('Report Problem',),
                   selectedTileColor: Colors.blue[100],
                   onTap: null,
