@@ -25,7 +25,7 @@ class _MyCartHomeState extends State<MyCartHome> {
           child: IconButton(
             icon: Image.asset('assets/mycartimages/icon1.png'),
             iconSize: 50,
-            onPressed: () { Navigator.pop(context);},
+            onPressed: () { Navigator.of(context).pop();},
           ),
         ),
       ),

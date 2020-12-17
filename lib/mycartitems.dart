@@ -124,9 +124,7 @@ class _MyCartWidgetState extends State<MyCartWidget> {
                 ),
               ),
               Container(
-                //    height: 112,
-                //  width: 30,
-                // padding: EdgeInsets.only(right: 20),
+
                 decoration: BoxDecoration(
                   color: Colors.white70,
                   borderRadius: BorderRadius.vertical(

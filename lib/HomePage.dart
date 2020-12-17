@@ -1,40 +1,63 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:laundarybookingui/cardwidget.dart';
 import 'package:laundarybookingui/mycartpage.dart';
 
-class HomePage extends StatelessWidget {
+import 'drawerwidget.dart';
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    print(size);
+    var size= MediaQuery.of(context).size;
+    var _selectedIndex=0;
+      void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              padding: EdgeInsets.fromLTRB(5, 20, 5, 10),
-              child:Container(
-                color: Colors.yellowAccent,
-                child: Text('Menu',style: TextStyle(color: Colors.blue),),)
-            ),
-            GestureDetector(
-              onTap: () {
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items:  <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(icon:Icon(Icons.shopping_cart),
+              onPressed: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MyCartHome()),
-                );
-              },
-              child: Text('My Cart'),
-            )
-          ],
-        ),
+                  MaterialPageRoute(builder: (context) => MyCartHome()));
+            },
+            ),
+            label: 'MY Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(icon:Icon(Icons.exit_to_app),
+            onPressed: null,
+            ),
+            label: 'Exit',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue[200],
+        onTap: _onItemTapped,
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
+      drawer:(
+        DrawerClass()),
+     
+      
+      body:
+       SafeArea(
+         child:SingleChildScrollView(
+             child: Container(
             padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
             child: Column(
               children: [
@@ -42,7 +65,7 @@ class HomePage extends StatelessWidget {
                   padding: EdgeInsets.only(top: size.height * 0.05),
                   child: Container(
                     padding:
-                        EdgeInsets.symmetric(horizontal: size.width * 0.02),
+                      EdgeInsets.symmetric(horizontal: size.width * 0.02),
                     width: double.infinity,
                     height: size.height * 0.091,
                     child: LayoutBuilder(
@@ -86,6 +109,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
+            
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
                   height: size.height * 0.23,
@@ -117,6 +141,7 @@ class HomePage extends StatelessWidget {
                     },
                   ),
                 ),
+                 SingleChildScrollView(child: 
                 Padding(
                   padding: EdgeInsets.all(size.width * 0.03),
                   child: Column(
@@ -151,12 +176,13 @@ class HomePage extends StatelessWidget {
                       )
                     ],
                   ),
+                  ),
                 )
               ],
             ),
-          ),
+          ), 
         ),
-      ),
+       )
     );
   }
 }
